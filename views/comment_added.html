@@ -1,0 +1,64 @@
+<%inherit file="layout/base.html"/>
+<%block name="commented">
+<div class="container" id="title">
+  <div class="row" style="text-align: center">
+    <div class="col-sm-12"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" style="text-align: center">
+    <div class="col-sm-3"><a href="/home">◀ HOME</a></div>
+    <div class="col-sm-6"></div>
+    <div class="col-sm-3"><a href="/create_comment/${beer_info["beer_id"]}">コメントする ▶</a></div>
+  </div>
+  <br>
+    <div class="row" style="text-align: center">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10" id="brewery_name"><h3>【${beer_info["brewery_name"]}】 ${beer_info["beer_name"]}</h3></div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="text-align: center">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10" id="beer_description">コメントしました！</div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="text-align: center">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10" id="beer_description">${beer_info["beer_description"]}</div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row" style="text-align: center">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">IBU：${beer_info["beer_ibu"]}</div>
+      <div class="col-sm-4">ABV：${beer_info["beer_abv"]}</div>
+      <div class="col-sm-2"></div>
+    </div>
+  <hr>
+  <div class="row" style="text-align: center">
+  % for comment in comment_list:
+    <div id="points" style="position: relative; top: ${-1*comment["comment_y"]*graph_setting["graph_size_y"]/2/100 + graph_setting["graph_size_y"]/2}px; left: ${comment["comment_x"]*graph_setting["graph_size_y"]/2/100 + graph_setting["graph_size_x"]/2}px;"></div>
+  %endfor
+  % if average_point:
+  <div id="average_point" style="position: relative; top: ${-1*average_point["average_y"]*graph_setting["graph_size_y"]/2/100 + graph_setting["graph_size_y"]/2}px; left: ${average_point["average_x"]*graph_setting["graph_size_y"]/2/100 + graph_setting["graph_size_x"]/2}px;"></div>
+  % endif
+  <div class="col-sm-12"　id="display_area"><img src="/static/img/graph.png"></div>
+  </div>
+  <div class="row" style="text-align: right">
+    <div class="col-sm-11">赤丸=平均値</div>
+    <div class="col-sm-1"></div>
+  </div>
+
+  <div id="comments">
+  % for comment in comment_list:
+  <div class="row" style="text-align: center">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-3" style="text-align: right">${comment["comment_user_name"]} </div>
+    <div class="col-sm-7" style="text-align: left">${comment["comment_comment"]} </div>
+    <div class="col-sm-1"></div>
+  </div>
+  % endfor
+  </div>
+</div>
+
+</%block>

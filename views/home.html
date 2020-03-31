@@ -1,0 +1,95 @@
+<%inherit file="layout/base.html"/>
+<%block name="home">
+<div class="container" id="title">
+  <div class="row" style="text-align: center">
+    <div class="col-sm-12"><img src="/static/img/title.png"></div>
+  </div>
+</div>
+
+<div class="container">
+<div class="panel-group" id="accordion_introduction">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row" style="text-align: center">
+        <div class="col-sm-12">
+          <div class="panel-title">
+            <p>
+          <a style="text-decoration:none; color:#696969" data-toggle="collapse" data-parent="#accordion_introduction" href="#intro_desc" role="button">▼ ごあいさつ と 使い方</a>
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="intro_desc" class="panel-collapse collapse in">
+      <div class="row" style="text-align: center">
+        <div class="col-sm-12">
+          こんにちは！つくばクラフトビアフェスト実行委員会です！<br><br>
+          つくばクラフトビアフェスト、楽しんでいただけていますでしょうか。<br><br>
+          会場にはたくさんのビールがありますので、どのビールを飲むか悩まれるかもしれません。<br>
+          そこで、ビールの味のコメントリストをみんなで作る「TAP YOUR BEER」を作りました！<br><br>
+          リストの中から気になるビールを探して、ぜひ味わい参考にしてみてください。<br>
+          もし、まだコメントがなかったり味わいを記録しておきたいビールがあれば<br>
+          コメントを残してシェアしましょう！<br><br>
+          </div>
+        </div>
+        <div class="row" style="text-align: center">
+          <div class="col-sm-12">
+          【コメント方法】<br><br>
+          １．コメントしたいビールを探して「+」をクリック<br>
+          ２．お名前（ニックネームでもOK）を入力<br>
+          ３．コメントを入れる<br>
+          ４．２軸グラフをタップして味を評価し、「コメントを投稿！」をクリック<br><br>
+          ぜひ一緒に味わいマップを完成させましょう！<br><br>
+          ※事前登録されているビールのみ表示されています<br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<br><br>
+<div class="container">
+  <div class="row" style="text-align: center">
+  <div class="col-sm-12">~ BEER LIST ~</div>
+  </div>
+  <br>
+% for brewery in brewery_list:
+<div class="panel-group" id="accordion${brewery["brewery_id"]}">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="row" style="text-align: center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+          <div class="panel-title">
+          <p class="brewery_name"><a style="text-decoration:none; color:#6495ED" data-toggle="collapse" data-parent="#accordion${brewery["brewery_id"]}" href="#brewery_${brewery["brewery_id"]}" role="button">${brewery["brewery_name"]} / ${brewery["brewery_prefecture"]}</a></p>
+          </div>
+        </div>
+        <div class="col-sm-2">
+        </div>
+      </div>
+    </div>
+    <p>
+    <div id="brewery_${brewery["brewery_id"]}" class="panel-collapse collapse in">
+      <br>
+      % for beer in beer_list:
+      % if brewery["brewery_id"] == beer["brewery_id"]:
+      <div class="row" style="text-align: center">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-8 beer-btn"><a class="stretched-link beer-name" href="/show_comment/${beer["beer_id"]}">${beer["beer_name"]}</a></div>
+        <div class="col-sm-2 add-btn"><a class="stretched-link" href="/create_comment/${beer["beer_id"]}"><img src="/static/img/add.png" height="40"></a></div>
+        <div class="col-sm-1"></div>
+      </div>
+      <br>
+      % endif
+      % endfor
+      <br>
+    </div>
+  </p>
+  </div>
+</div>
+% endfor
+</div>
+
+</div>
+</%block>

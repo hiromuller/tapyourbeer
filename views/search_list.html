@@ -1,0 +1,19 @@
+<%inherit file="layout/base.html"/>
+<%block name="search_box">
+<h2>検索box</h2>
+<form name="todo" method="POST" action="/search">
+  <input type="text" name="search_item" placeholder="キーワードを入力" required /><br/>
+  <input type="submit" value="検索" />
+</form>
+</%block>
+
+<%block name="search_result">
+  <table border="1">
+    % for result in results_list:
+    <tr>
+      <td>${result["id"]}</td>
+      <td>${result["name"]}</td>
+    </tr>
+    % endfor
+  </table>
+</%block>

@@ -1,0 +1,124 @@
+#click{
+  position: absolute;
+  z-index: 9999;
+  width: 10px;
+  height: 10px;
+  background: #98984f;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#points{
+  position: absolute;
+  z-index: 9999;
+  width: 10px;
+  height: 10px;
+  background: #98984f;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#average_point{
+  position: absolute;
+  z-index: 9999;
+  width: 15px;
+  height: 15px;
+  background: #ff0000;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+#title{
+  padding: 50px;
+}
+
+#beer_description{
+  padding: 20px;
+}
+
+#brewery_name{
+  padding: 30px;
+}
+
+#beer_name{
+  padding: 30px;
+}
+
+#comments{
+  padding-top: 40px;
+}
+
+p {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  font-weight: 700;
+  font-size: large;
+}
+
+p.brewery_name {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  font-weight: 900;
+  font-size: x-large;
+  text-decoration:none;
+}
+
+.content{
+  margin-top: 30px;
+}
+
+.ghost-btn-blue {
+    background-color: transparent;
+    border: 2px solid #6fa0a7;
+    padding: 12px 30px;
+    color: #6FA0A7!important;
+    border-radius: 1px;
+}
+
+.beer-btn {
+    padding: 10px 10px;
+    border-left: solid 1px #d3d3d3;
+    border-top: solid 1px #d3d3d3;
+    border-bottom: solid 1px #d3d3d3;
+}
+
+a.beer-name {
+  font-size:x-large;
+  text-decoration:none;color:#696969
+}
+
+.add-btn {
+    padding: 10px 10px;
+}
+body {
+  background-color:#FBEDBC;
+}
+
+input {
+	font-size: 16px ;
+}
+
+/*
+.body {
+  background-image:
+  url("/static/img/bg_left.png"), /* 最前面の背景レイヤーの背景画像 */
+  url("/static/img/bg_right.png");
+
+background-repeat:
+  no-repeat, /* 最前面の背景レイヤーに対応 */
+  no-repeat;
+
+background-position:
+  left, /* 最前面の背景レイヤーに対応 */
+  right;
+
+background-size:
+  auto 100vh,
+  auto 100vh;
+
+background-attachment:
+  fixed,
+  fixed;
+}
+*/

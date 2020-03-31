@@ -1,0 +1,68 @@
+<%inherit file="layout/base.html"/>
+<%block name="create_comment">
+<div class="container" id="title">
+  <div class="row" style="text-align: center">
+    <div class="col-sm-12"></div>
+  </div>
+</div>
+
+<div class="container">
+  <form name="add_comment" method="POST" action="/add_comment">
+    <div class="row" style="text-align: center">
+      <div class="col-sm-3"><a href="/home">◀ HOME</a></div>
+      <div class="col-sm-6"></div>
+      <div class="col-sm-3"><a href="/show_comment/${beer_info["beer_id"]}">コメントをみる ▶</a></div>
+    </div>
+    <br>
+      <div class="row" style="text-align: center">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10" id="brewery_name" style="text-align: center">
+          <h4>【${beer_info["brewery_name"]} | ${beer_info["beer_name"]}】</h4>のコメントを入力してね！</div>
+        <div class="col-sm-1"></div>
+      </div>
+    <hr>
+<br>
+  <div class="row">
+    <div class="col-sm-12" style="text-align: center">①お名前とコメントを入力！</div>
+  </div>
+
+<br>
+  <div class="row" style="text-align: center">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-8" style="text-align: left"><input type="text" name="comment_user_name" placeholder="お名前" required /></div>
+  </div>
+  <br>
+  <div class="row" style="text-align: center">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-8" style="text-align: left"><input type="text" name="comment" placeholder="コメント" required /></div>
+  </div>
+
+<br><br>
+  <div class="row">
+    <div class="col-sm-12" style="text-align: center">②味の印象をグラフ上にタップ！</div>
+  </div>
+  <br>
+  <div class="row" style="text-align: center">
+    <div id="click" style="top: -20px; left: -20px;"></div>
+    <div class="col-sm-12" id="graph_area"><img src="/static/img/graph.png"></div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-sm-4" style="text-align: right">甘-苦</div>
+    <div class="col-sm-2" id="xloc" style="text-align: left">0</div>
+    <div class="col-sm-2" style="text-align: right">ボディ</div>
+    <div class="col-sm-4" id="yloc" style="text-align: left">0</div>
+  </div>
+  <br>
+  <br>
+  <div class="row" style="text-align: center">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4" style="text-align: left"><input class="btn btn-outline-info btn-block" type="submit" value="コメントを投稿！" /></div>
+    <div class="col-sm-4"></div>
+  </div>
+  <input type="hidden" name="x" value="">
+  <input type="hidden" name="y" value="">
+  <input type="hidden" name="beer_id" value="${beer_info["beer_id"]}">
+</form>
+</div>
+
+</%block>
