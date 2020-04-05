@@ -2,7 +2,7 @@ from bottle import mako_view as view
 from bottle import Bottle, route, run, template, redirect, request, get, static_file
 import sqlite3
 import os
-#github test
+#test commit
 app = Bottle()
 dbname = "tcbf_beer_taste.db"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
